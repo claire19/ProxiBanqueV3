@@ -17,6 +17,7 @@ public class Client extends Person {
 	@ManyToOne
 	@JoinColumn(name = "clients")
 	private Conseiller conseiller;
+
 	@OneToMany(mappedBy = "client")
 	private Map<Long, Compte> comptes = new HashMap<>();
 
@@ -26,11 +27,11 @@ public class Client extends Person {
 		this.email = email;
 	}
 
-	// get set
-
 	public Client() {
-		super();
+
 	}
+
+	// get set
 
 	public String getAdresse() {
 		return adresse;

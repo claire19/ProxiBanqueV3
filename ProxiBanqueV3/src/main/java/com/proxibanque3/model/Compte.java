@@ -9,12 +9,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
-@Inheritance
+@Entity 
+@Inheritance 
 @DiscriminatorColumn(name="TypeCompte")
 public abstract class Compte {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected long numeroCompte;
 	protected String type;
