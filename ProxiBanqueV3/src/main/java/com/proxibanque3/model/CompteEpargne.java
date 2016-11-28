@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue("CompteEpargne")
 public class CompteEpargne extends Compte{
 
-	public CompteEpargne(double solde, long numeroCompte) {
-		super(EPARGNE, solde, numeroCompte);
+	public CompteEpargne(double solde) {
+		super(EPARGNE, solde);
 		}
 	
 }

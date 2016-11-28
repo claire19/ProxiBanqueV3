@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Client extends Person {
@@ -14,9 +15,11 @@ public class Client extends Person {
 	public String adresse;
 	public String email;
 	@ManyToOne
-	@JoinColumn(name = "listeClient")
-	public Conseiller conseiller;
 
+	@JoinColumn(name = "clients")
+
+	public Conseiller conseiller;
+	@OneToMany(mappedBy = "client")
 	private Map<Long, Compte> comptes = new HashMap<>();
 
 	public Client(String nom, String prenom, long id, String adresse, String email) {

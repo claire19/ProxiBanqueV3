@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity 
 @Inheritance 
@@ -18,13 +20,20 @@ public abstract class Compte {
 	protected String type;
 	protected double solde;
 	protected static final String COURANT = "courant";
-	protected static final String EPARGNE = "epargne";
 
-	public Compte(String type, double solde, long numeroCompte) {
+	protected static final String EPARGNE = "epargne";
+	@ManyToOne
+	@JoinColumn(name="comptes")
+	protected Client client;
+
+	public Compte() {
+	}
+
+	public Compte(String type, double solde) {
 		super();
 		this.type = type;
 		this.solde = solde;
-		this.numeroCompte = numeroCompte;
+		
 	}
 
 	public String getType() {
