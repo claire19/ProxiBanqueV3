@@ -63,7 +63,6 @@ public class SQLDaoClient implements DaoClient {
 
 				allClients.put(id, c);
 
-			
 			}
 
 		} catch (Exception e) {
@@ -155,7 +154,5 @@ public class SQLDaoClient implements DaoClient {
 		}
 
 	}
-
-
 
 }
