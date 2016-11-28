@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,7 +19,7 @@ public class Client extends Person {
 	@JoinColumn(name = "clients")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy = "client")
+	@OneToMany(mappedBy = "client", cascade={CascadeType.PERSIST})
 	private Map<Long, Compte> comptes = new HashMap<>();
 
 	public Client(String nom, String prenom, String adresse, String email) {
