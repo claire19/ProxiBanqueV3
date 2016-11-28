@@ -4,19 +4,16 @@ import java.util.Map;
 
 import com.proxibanque3.model.Conseiller;
 
-
 public interface DaoConseiller {
 
 	void createConseillerDao(Conseiller conseiller);
 
-	Map<Integer, Conseiller> readAllConseillerDao();
+	Map<Long, Conseiller> readAllConseillerDao();
 
-	Conseiller readConseillerDaoById(int idConseiller);
+	Conseiller readConseillerDaoById(long idConseiller);
 
 	void updateConseillerDao(Conseiller conseiller);
 
 	void deleteConseillerDao(Conseiller conseiller);
-	
-	Integer createIdConseiller ();
 
 }
