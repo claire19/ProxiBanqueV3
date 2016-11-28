@@ -1,6 +1,12 @@
 package com.proxibanque3.model;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorColumn(name="TypePersonne")
 public abstract class Person {
+
 	public String nom;
 	public String prenom;
 

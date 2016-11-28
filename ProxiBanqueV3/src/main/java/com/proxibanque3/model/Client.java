@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Client extends Person {
@@ -51,13 +52,13 @@ public class Client extends Person {
 	public void setIdClient(long idClient) {
 		this.idClient = idClient;
 	}
-	// obtenir la liste des comptes associ�s au client
+	// obtenir la liste des comptes associés au client
 
 	public Collection<Compte> getListeCompte() {
 		return listeCompte.values();
 	}
 
-	// on ajoute un compte � la liste du client
+	// on ajoute un compte à la liste du client
 	public void ajouterCompteListeCompte(Compte compte) {
 		listeCompte.put(compte.getNumeroCompte(), compte);
 	}
