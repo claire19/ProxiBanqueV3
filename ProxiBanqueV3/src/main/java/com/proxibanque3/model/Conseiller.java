@@ -6,21 +6,24 @@ import java.util.Map;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
 @Entity
 public class Conseiller extends Person {
 
 	private String login;
 	private String password;
-	
-	@OneToMany(mappedBy="conseiller")
+
+	@OneToMany(mappedBy = "conseiller")
 	private Map<Long, Client> clients = new HashMap<>();
 
 	// Constructeur
-	public Conseiller(String nom, String prenom, String login, String password, long id) {
-		super(nom, prenom, id);
+	public Conseiller(String nom, String prenom, String login, String password) {
+		super(nom, prenom);
 		this.login = login;
 		this.password = password;
-		
+	}
+
+	public Conseiller() {
 	}
 
 	// get set
@@ -39,8 +42,6 @@ public class Conseiller extends Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 
 	// obtenir la liste des clients associ�s au conseiller
 

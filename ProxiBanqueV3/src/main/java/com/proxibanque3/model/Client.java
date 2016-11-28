@@ -12,22 +12,25 @@ import javax.persistence.OneToMany;
 @Entity
 public class Client extends Person {
 
-	public String adresse;
-	public String email;
+	private String adresse;
+	private String email;
 	@ManyToOne
 	@JoinColumn(name = "clients")
-	public Conseiller conseiller;
+	private Conseiller conseiller;
 	@OneToMany(mappedBy = "client")
 	private Map<Long, Compte> comptes = new HashMap<>();
 
-	public Client(String nom, String prenom, long id, String adresse, String email) {
-		super(nom, prenom, id);
-
+	public Client(String nom, String prenom, String adresse, String email) {
+		super(nom, prenom);
 		this.adresse = adresse;
 		this.email = email;
 	}
 
 	// get set
+
+	public Client() {
+		super();
+	}
 
 	public String getAdresse() {
 		return adresse;

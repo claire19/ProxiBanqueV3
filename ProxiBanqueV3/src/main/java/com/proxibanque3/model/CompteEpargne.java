@@ -11,4 +11,8 @@ public class CompteEpargne extends Compte{
 		super(EPARGNE, solde);
 		}
 	
+	public CompteEpargne(){
+		
+	}
+	
 }

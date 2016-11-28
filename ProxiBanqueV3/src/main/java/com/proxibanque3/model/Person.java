@@ -12,8 +12,8 @@ public abstract class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	public String nom;
-	public String prenom;
+	private String nom;
+	private String prenom;
 
 	// get set
 	public String getNom() {
@@ -41,10 +41,13 @@ public abstract class Person {
 	}
 
 	// Constructeur
-	public Person(String nom, String prenom, long id) {
+	public Person(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
-		this.id = id;
+
+	}
+
+	public Person() {
 	}
 
 }

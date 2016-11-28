@@ -5,10 +5,13 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("CompteCourant")
-public class CompteCourant extends Compte{
+public class CompteCourant extends Compte {
 
 	public CompteCourant(double solde) {
 		super(COURANT, solde);
-		}
-	
+	}
+
+	public CompteCourant() {
+	}
+
 }
