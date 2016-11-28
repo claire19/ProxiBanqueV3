@@ -11,7 +11,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.proxibanque3.model.Client;
 import com.proxibanque3.model.Compte;
 
 public class SQLDaoCompte implements DaoCompte {
