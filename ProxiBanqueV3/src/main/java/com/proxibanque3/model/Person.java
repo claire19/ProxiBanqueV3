@@ -2,11 +2,16 @@ package com.proxibanque3.model;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@DiscriminatorColumn(name="TypePersonne")
+@DiscriminatorColumn(name = "TypePersonne")
 public abstract class Person {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	public String nom;
 	public String prenom;
 
@@ -27,11 +32,19 @@ public abstract class Person {
 		this.prenom = prenom;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	// Constructeur
-	public Person(String nom, String prenom) {
-		super();
+	public Person(String nom, String prenom, long id) {
 		this.nom = nom;
 		this.prenom = prenom;
+		this.id = id;
 	}
 
 }

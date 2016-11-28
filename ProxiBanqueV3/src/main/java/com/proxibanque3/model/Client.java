@@ -12,17 +12,15 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Client extends Person {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idClient;
+	
 	public String adresse;
 	public String email;
 
-	private Map<Long, Compte> listeCompte = new HashMap<>();
+	private Map<Long, Compte> comptes = new HashMap<>();
 
-	public Client(String nom, String prenom, long idClient, String adresse, String email) {
-		super(nom, prenom);
-		this.idClient = idClient;
+	public Client(String nom, String prenom, long id, String adresse, String email) {
+		super(nom, prenom, id);
+	
 		this.adresse = adresse;
 		this.email = email;
 	}
@@ -45,26 +43,20 @@ public class Client extends Person {
 		this.email = email;
 	}
 
-	public long getIdClient() {
-		return idClient;
-	}
 
-	public void setIdClient(long idClient) {
-		this.idClient = idClient;
-	}
 	// obtenir la liste des comptes associés au client
 
 	public Collection<Compte> getListeCompte() {
-		return listeCompte.values();
+		return comptes.values();
 	}
 
 	// on ajoute un compte à la liste du client
 	public void ajouterCompteListeCompte(Compte compte) {
-		listeCompte.put(compte.getNumeroCompte(), compte);
+		comptes.put(compte.getNumeroCompte(), compte);
 	}
 	// on supprime un compte de la liste du client
 
 	public void supprimerCompteListeCompte(Compte compte) {
-		listeCompte.remove(compte).getNumeroCompte();
+		comptes.remove(compte).getNumeroCompte();
 	}
 }
