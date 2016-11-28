@@ -53,6 +53,7 @@ public class Conseiller extends Person {
 	// on ajoute un client � la liste du conseiller
 	public void ajouterClientListeClient(Client client) {
 		clients.put(client.getId(), client);
+		client.setConseiller(this);
 	}
 	// on supprime un client de la liste du conseiller
 
