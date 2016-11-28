@@ -19,6 +19,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 
 	@Override
 	public void createConseillerDao(Conseiller conseiller) {
+
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 		try {

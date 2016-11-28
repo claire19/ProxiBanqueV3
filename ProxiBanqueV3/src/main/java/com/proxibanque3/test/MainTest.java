@@ -24,6 +24,9 @@ public class MainTest {
 //		
 //		dao.updateCompteDao(compte3);		
 		
+//		dao.updateCompteDao(compte3);	
+		
+		
 		
 		DaoConseiller daocon = new SQLDaoConseiller();
 		///creation

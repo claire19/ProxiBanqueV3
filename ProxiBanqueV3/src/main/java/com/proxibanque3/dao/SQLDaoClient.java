@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.proxibanque3.model.Client;
+import com.proxibanque3.model.Person;
 
 public class SQLDaoClient implements DaoClient {
 
@@ -48,21 +49,21 @@ public class SQLDaoClient implements DaoClient {
 		Map<Long, Client> allClients = new HashMap<>();
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
-		List<Client> retList = new ArrayList<>();
+		List<?> retList = new ArrayList<>();
 
 		try {
 			tnx.begin();
 
-			Query query = em.createNamedQuery("from client", Client.class);
+			Query query = em.createQuery("from Person where TypePerson = Client", Person.class);
 			retList = query.getResultList();
 
-			for (Iterator<Client> i = retList.iterator(); i.hasNext();) {
-				Client c = i.next();
+			for (Iterator<?> i = retList.iterator(); i.hasNext();) {
+				Client c = (Client) i.next();
 				long id = c.getId();
 
 				allClients.put(id, c);
 
-				tnx.commit();
+			
 			}
 
 		} catch (Exception e) {
