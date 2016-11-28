@@ -1,5 +1,6 @@
 package com.proxibanque3.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,9 +23,10 @@ public abstract class Compte {
 	protected static final String COURANT = "courant";
 
 	protected static final String EPARGNE = "epargne";
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.PERSIST})
 	@JoinColumn(name="comptes")
 	protected Client client;
+
 
 	public Compte() {
 	}
@@ -60,4 +62,11 @@ public abstract class Compte {
 		this.numeroCompte = numeroCompte;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
 }

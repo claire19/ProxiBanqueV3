@@ -1,6 +1,5 @@
 package com.proxibanque3.service;
 
-
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
@@ -15,126 +14,117 @@ import com.proxibanque3.model.CompteCourant;
 import com.proxibanque3.model.CompteEpargne;
 import com.proxibanque3.model.Conseiller;
 
-
-
 /**
- * @author 
+ * @author
  *
- *Cette classe comprend tout les services utilises en presentation par le conseiller
- *depuis le simple affichage de liste juqu'� la modification des entites stockees en base de donnees
+ * 		Cette classe comprend tout les services utilises en presentation par
+ *         le conseiller depuis le simple affichage de liste juqu'� la
+ *         modification des entites stockees en base de donnees
  *
  *
  *
  */
 public class Service {
-	
-@Inject
-DaoConseiller daoconseiller;
-DaoClient daoclient;
-DaoCompte daocompte;
 
+	@Inject
+	DaoConseiller daoconseiller;
+	DaoClient daoclient;
+	DaoCompte daocompte;
 
+	@PostConstruct
+	public void dataBaseRempl() {
+		System.out.println("******* Coucou je m'execute post construct *****");
 
+		Client cli1 = new Client("Allen", "Woody", "57 rue de Manhattan, Hollywood", "wa@gmail.com");
+		Client cli2 = new Client("Redford", "Robert", "12 rue des moines, Los Angeles", "rr@gmail.com");
+		Client cli3 = new Client("Streep", "Meryl", "38 rue d'Athènes, Paris", "ms@gmail.com");
 
-@PostConstruct
-public void dataBaseRempl(){
-	Client cli1 = new Client("Allen", "Woody", "57 rue de Manhattan, Hollywood", "wa@gmail.com");
-	Client cli2 = new Client("Redford", "Robert", "12 rue des moines, Los Angeles", "rr@gmail.com");
-	Client cli3 = new Client("Streep", "Meryl", "38 rue d'Athènes, Paris", "ms@gmail.com");
-	
-	
-	Conseiller cons1 = new Conseiller("LeBon", "Charlotte", "admin", "admin");
-	Conseiller cons2 = new Conseiller("Duris", "Romain", "login", "password");
-	
-	
-	CompteCourant cc1 = new CompteCourant(100000);
-	CompteCourant cc2 = new CompteCourant(256347);
-	CompteCourant cc3 = new CompteCourant(123654789);
-	
-	CompteEpargne ce1 = new CompteEpargne(10);
-	
-	cli1.ajouterCompteListeCompte(cc1);
-	cli1.ajouterCompteListeCompte(ce1);
-	
-	cli2.ajouterCompteListeCompte(cc2);
-	
-	cli3.ajouterCompteListeCompte(cc3);
-	
-	cons1.ajouterClientListeClient(cli1);
-	cons1.ajouterClientListeClient(cli2);
-	
-	cons2.ajouterClientListeClient(cli3);
-	
+		Conseiller cons1 = new Conseiller("LeBon", "Charlotte", "admin", "admin");
+		Conseiller cons2 = new Conseiller("Duris", "Romain", "login", "password");
 
-	daoconseiller.createConseillerDao(cons1);
-	daoconseiller.createConseillerDao(cons2);
-	
-//	daocompte.createCompteDao(ce1);
-//	daocompte.createCompteDao(cc3);
-//	daocompte.createCompteDao(cc2);
-//	daocompte.createCompteDao(cc1);
-	
-//	daoclient.createClientDao(cli3);
-//	daoclient.createClientDao(cli2);
-//	daoclient.createClientDao(cli1);
-	
+		CompteCourant cc1 = new CompteCourant(100000);
+		CompteCourant cc2 = new CompteCourant(256347);
+		CompteCourant cc3 = new CompteCourant(123654789);
+
+		CompteEpargne ce1 = new CompteEpargne(10);
+
+		cli1.ajouterCompteListeCompte(cc1);
+		cli1.ajouterCompteListeCompte(ce1);
+
+		cli2.ajouterCompteListeCompte(cc2);
+
+		cli3.ajouterCompteListeCompte(cc3);
+
+		cons1.ajouterClientListeClient(cli1);
+		cons1.ajouterClientListeClient(cli2);
+
+		cons2.ajouterClientListeClient(cli3);
+
+		daoconseiller.createConseillerDao(cons1);
+		daoconseiller.createConseillerDao(cons2);
+
+		// daocompte.createCompteDao(ce1);
+		// daocompte.createCompteDao(cc3);
+		// daocompte.createCompteDao(cc2);
+		// daocompte.createCompteDao(cc1);
+
+		// daoclient.createClientDao(cli3);
+		// daoclient.createClientDao(cli2);
+		// daoclient.createClientDao(cli1);
+
 	}
 
-
-
-	
 	// Methodes qui appellent la DAO
-	
+
 	private Client lireClientServ(int idClient) {
 		Client client = daoclient.readClientDaoById(idClient);
 		return client;
 	}
-	
+
 	private Conseiller lireConseillerServ(int idConseiller) {
 		Conseiller conseiller = daoconseiller.readConseillerDaoById(idConseiller);
 		return conseiller;
 	}
-	
+
 	private Compte lireCompteServ(long numeroCompte) {
 		Compte compte = daocompte.readCompteDaoById(numeroCompte);
 		return compte;
 	}
 
-
 	private void modifierClientServ(Client client) {
 		daoclient.updateClientDao(client);
 	}
 
+	// Methodes Service
 
-// Methodes Service
-	
 	public Collection<Compte> listerComptesByClient(int idClient) {
 		Client client = lireClientServ(idClient);
 		Collection<Compte> listeComptes = client.getListeCompte();
 		return listeComptes;
 	}
-	
+
 	public Collection<Compte> listerComptes() {
-	 Collection<Compte> listeComptes = daocompte.readAllCompteDao().values();
+		Collection<Compte> listeComptes = daocompte.readAllCompteDao().values();
 		return listeComptes;
 	}
-	
-	public Client obtenirClientParId(int idClient){
+
+	public Client obtenirClientParId(int idClient) {
 		Client client = lireClientServ(idClient);
 		return client;
 	}
-	
-	public Compte obtenirCompteParNum(long numCompte){
+
+	public Compte obtenirCompteParNum(long numCompte) {
 		Compte compte = lireCompteServ(numCompte);
 		return compte;
 	}
-	
+
 	public Collection<Client> listerClientsByConseiller(int idConseiller) {
 		Conseiller conseiller = lireConseillerServ(idConseiller);
 		Collection<Client> listeClients = conseiller.getListeClient();
 		return listeClients;
 	}
-	public void effectuerVirement (long numCompteDebite, long numCompteCredite, double montant) {
+
+	public void effectuerVirement(long numCompteDebite, long numCompteCredite, double montant) {
 		Compte compteDebite = lireCompteServ(numCompteDebite);
 		Compte compteCredite = lireCompteServ(numCompteCredite);
 		compteCredite.setSolde(compteCredite.getSolde() + montant);
@@ -142,7 +132,7 @@ public void dataBaseRempl(){
 		daocompte.updateCompteDao(compteCredite);
 		daocompte.updateCompteDao(compteDebite);
 	}
-	
+
 	public void modifierAdresseClient(String adresse, int idClient) {
 		Client client = lireClientServ(idClient);
 		client.setAdresse(adresse);
@@ -166,15 +156,15 @@ public void dataBaseRempl(){
 		client.setEmail(email);
 		modifierClientServ(client);
 	}
-	
-	public void enregistrerConseiller(Conseiller conseiller){
+
+	public void enregistrerConseiller(Conseiller conseiller) {
 		daoconseiller.createConseillerDao(conseiller);
 		for (Client client : conseiller.getListeClient()) {
 			daoclient.createClientDao(client);
-			for (Compte compte: client.getListeCompte()){
+			for (Compte compte : client.getListeCompte()) {
 				daocompte.createCompteDao(compte);
 			}
 		}
-		}
-	
+	}
+
 }
