@@ -1,6 +1,5 @@
 package com.proxibanque3.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -12,6 +11,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import com.proxibanque3.model.Client;
 import com.proxibanque3.model.Compte;
 
 public class SQLDaoCompte implements DaoCompte {
@@ -42,16 +42,16 @@ public class SQLDaoCompte implements DaoCompte {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 		Map<Long, Compte> allComptes = new HashMap<>();
-		
+
 		try {
 			tnx.begin();
-			Query q = em.createNamedQuery("from Compte", Compte.class);
-			List<Compte> retList = q.getResultList();
-			for (Iterator<Compte> i = retList.iterator() ; i.hasNext();) {
-				Compte c = i.next();
+			Query q = em.createQuery("from Compte", Compte.class);
+			List<?> retList = q.getResultList();
+			for (Iterator<?> i = retList.iterator(); i.hasNext();) {
+				Compte c = (Compte) i.next();
 				allComptes.put(c.getNumeroCompte(), c);
 			}
-			
+
 			tnx.commit();
 		} catch (Exception e) {
 			if (tnx != null) {
@@ -92,20 +92,51 @@ public class SQLDaoCompte implements DaoCompte {
 
 	@Override
 	public void updateCompteDao(Compte compte) {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tnx = em.getTransaction();
 
+		try {
+			tnx.begin();
+
+			em.merge(compte);
+
+			tnx.commit();
+		} catch (Exception e) {
+			if (tnx != null) {
+				tnx.rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
 	}
 
 	@Override
 	public void deleteCompteDao(Compte compte) {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tnx = em.getTransaction();
+		if (compte != null) {
+			try {
+				tnx.begin();
+
+				em.remove(em.find(Compte.class,compte.getNumeroCompte()));
+
+				tnx.commit();
+			} catch (Exception e) {
+				if (tnx != null) {
+					tnx.rollback();
+				}
+				e.printStackTrace();
+			} finally {
+				if (em != null) {
+					em.close();
+				}
+			}
+		} else {
+			System.out.println("ce compte n'existe pas dans la DB il ne peut donc etre supprimé");
+		}
 
 	}
-
-	@Override
-	public long createNumeroCompte() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }
