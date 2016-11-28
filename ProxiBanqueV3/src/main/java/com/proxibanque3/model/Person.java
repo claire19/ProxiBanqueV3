@@ -47,4 +47,8 @@ public abstract class Person {
 		this.id = id;
 	}
 
+	public Person() {
+
+	}
+
 }

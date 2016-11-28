@@ -7,12 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 
-@Entity
-@Inheritance
+@Entity 
+@Inheritance 
 @DiscriminatorColumn(name="TypeCompte")
 public abstract class Compte {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	protected long numeroCompte;
 	protected String type;

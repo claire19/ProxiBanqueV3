@@ -2,7 +2,6 @@ package com.proxibanque3.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
 
 @Entity
 @DiscriminatorValue("CompteCourant")
