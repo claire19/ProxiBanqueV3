@@ -5,16 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 @Entity
 public class Conseiller extends Person {
 
 	private String login;
 	private String password;
 	
-
+	@OneToMany(mappedBy="conseiller")
 	private Map<Long, Client> clients = new HashMap<>();
 
 	// Constructeur

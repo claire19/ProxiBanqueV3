@@ -5,27 +5,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Client extends Person {
-	
+
 	public String adresse;
 	public String email;
 	@ManyToOne
-	@JoinColumn(name="listeClient")
+	@JoinColumn(name = "clients")
 	public Conseiller conseiller;
-
+	@OneToMany(mappedBy = "client")
 	private Map<Long, Compte> comptes = new HashMap<>();
 
 	public Client(String nom, String prenom, long id, String adresse, String email) {
 		super(nom, prenom, id);
-	
+
 		this.adresse = adresse;
 		this.email = email;
 	}
@@ -47,7 +44,6 @@ public class Client extends Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 	// obtenir la liste des comptes associés au client
 
