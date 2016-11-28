@@ -17,6 +17,5 @@ public interface DaoCompte {
 
 	void deleteCompteDao(Compte compte);
 	
-	long createNumeroCompte();
-
+	
 }
