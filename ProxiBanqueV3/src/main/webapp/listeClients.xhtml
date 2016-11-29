@@ -6,14 +6,33 @@
 <ui:composition template="resources/templates/template.xhtml">
 	<ui:define name="title">Espace Conseiller </ui:define>
 
-	<ui:define name="content">
-		<h:form>
+<!-- 	<ui:define name="content"> -->
+<!-- 		<h:form> -->
 
-			<h:selectOneRadio value="#{client}">
-				<f:selectItems value="#{conseillerController.listClients}" />
-			</h:selectOneRadio>
-			<h:commandButton value="Selectionner" action="consultationClient" />
-		</h:form>
-	</ui:define>
+			<h:dataTable value="#{Client.clients}" var="client">
+				<h:column>
+
+					<f:facet name="header1">Nom</f:facet>
+		#{client.name}
+			
+				</h:column>
+				<h:column>
+					<f:facet name="header2">Prénom</f:facet>
+				#{client.prenom}
+				</h:column>
+
+
+
+			</h:dataTable>
+
+
+<!-- 			<h:selectOneRadio value="#{client}"> -->
+<!-- 			</h:selectOneRadio> -->
+<!-- 			<h:selectOneRadio value="#{client}"> -->
+<!-- 				<f:selectItems value="#{conseillerController.listClients}" /> -->
+<!-- 			</h:selectOneRadio> -->
+<!-- 			<h:commandButton value="Selectionner" action="consultationClient" /> -->
+<!-- 		</h:form> -->
+<!-- 	</ui:define> -->
 </ui:composition>
 </html>

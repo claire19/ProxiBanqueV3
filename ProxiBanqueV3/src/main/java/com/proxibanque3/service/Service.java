@@ -29,7 +29,9 @@ public class Service {
 
 	@Inject
 	DaoConseiller daoconseiller;
+	@Inject
 	DaoClient daoclient;
+	@Inject
 	DaoCompte daocompte;
 
 	@PostConstruct
