@@ -6,7 +6,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <ui:composition template="resources/templates/template.xhtml">
 
-	<h:head></h:head>
+		<h:head></h:head>
 
 
 	<ui:define name="title"> Effectuer un virement </ui:define>
@@ -15,41 +15,36 @@
 	<ui:define name="content">
 
 
-		<h:panelGrid columns="2">
-			<h:form>
+		<h:form>
+			<h:outputLabel>Identifiant du client à débiter</h:outputLabel>
 
-				<h:outputLabel>Identifiant du client à débiter</h:outputLabel>
-				<h:inputText value="#{compteController.id}" id="client">
-					<f:ajax render="cDeb" execute="@this" event="keyup" />
-				</h:inputText>
-
-
-				<h:outputLabel>Compte débité :</h:outputLabel>
-				<h:selectOneMenu value="#{compteController.numeroCompteDeb}">
-					<f:selectItems value="#{compteController.comptesById}" id="cDeb" />
-
-				</h:selectOneMenu>
-
-				<h:outputLabel>Compte crédité :</h:outputLabel>
-				<h:selectOneMenu value="#{compteController.numeroCompteCred}">
-					<f:selectItems value="#{compteController.allComptes}" id="cCred" />
-				</h:selectOneMenu>
-
-				<h:outputLabel>Montant du virement : </h:outputLabel>
-				<h:inputText value="#{compteController.montant}" id="montant"></h:inputText>
+			<h:inputText value="#{compteController.id}" id="client">
+				<f:ajax render="cDeb" execute="@this" event="keyup" />
+			</h:inputText>
 
 
-				<h:commandButton value="Valider"
-					action="#{compteController.virementDone(compteController.numeroCompteDeb, compteController.numeroCompteCred, compteController.montant)}" />
-			</h:form>
-		</h:panelGrid>
 
+			<h:outputLabel>Compte débité :</h:outputLabel>
+			<h:selectOneMenu value="#{compteController.numeroCompteDeb}">
+				<f:selectItems value="#{compteController.comptesById}" id="cDeb" />
+
+			</h:selectOneMenu>
+
+			<h:outputLabel>Compte crédité :</h:outputLabel>
+			<h:selectOneMenu value="#{compteController.numeroCompteCred}">
+				<f:selectItems value="#{compteController.allComptes}" id="cCred" />
+			</h:selectOneMenu>
+
+
+			<h:outputLabel>Montant du virement : </h:outputLabel>
+			<h:inputText value="#{compteController.montant}" id="montant"></h:inputText>
+
+
+			<h:commandButton value="Valider"
+				action="#{compteController.virementDone(compteController.numeroCompteDeb, compteController.numeroCompteCred, compteController.montant)}" />
+		</h:form>
 
 	</ui:define>
-
-
-
-
 
 </ui:composition>
 </html>

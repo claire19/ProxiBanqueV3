@@ -87,7 +87,7 @@ public class SQLDaoClient implements DaoClient {
 		try {
 			tnx.begin();
 
-			em.find(Client.class, idClient);
+			c = em.find(Client.class, idClient);
 
 			tnx.commit();
 		} catch (Exception e) {
