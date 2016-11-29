@@ -23,6 +23,7 @@ public class CompteController implements Serializable {
 	 * pour le virement.
 	 */
 	private static final long serialVersionUID = 1L;
+	private long id;
 	private long numeroCompteDeb;
 	private long numeroCompteCred;
 	private double montant;
@@ -31,6 +32,25 @@ public class CompteController implements Serializable {
 
 	@Inject
 	Service service;
+
+
+
+	public List<SelectItem> getComptesById() {
+
+		Client c = new Client();
+		c.setId(this.id);
+		Iterator<Compte> comptes = service.listerComptesByClient(c.getId()).iterator();
+
+		List<SelectItem> comptescli = new ArrayList<SelectItem>();
+		while (comptes.hasNext()) {
+			Compte co = comptes.next();
+			SelectItem s = new SelectItem(co.getNumeroCompte(), co.toString());
+			comptescli.add(s);
+		}
+		return comptescli;
+
+	}
+
 
 	public List<SelectItem> getAllComptes() {
 		Iterator<Compte> comptes = service.listerComptes().values().iterator();
@@ -44,19 +64,6 @@ public class CompteController implements Serializable {
 		return allComptes;
 	}
 
-	public List<SelectItem> getComptesById() {
-
-		Iterator<Compte> comptes = service.listerComptesByClient(c.getId()).iterator();
-
-		List<SelectItem> comptescli = new ArrayList<SelectItem>();
-		while (comptes.hasNext()) {
-			Compte co = comptes.next();
-			SelectItem s = new SelectItem(co.getNumeroCompte(), co.toString());
-			comptescli.add(s);
-		}
-		return comptescli;
-
-	}
 
 	public void getVirementDone() {
 		service.effectuerVirement(numeroCompteDeb, numeroCompteCred, montant);
@@ -94,4 +101,15 @@ public class CompteController implements Serializable {
 		this.montant = montant;
 	}
 
+<<<<<<< HEAD
+=======
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+>>>>>>> 160a9195f7d3552fc3c02fae2701aa2816ff0757
 }

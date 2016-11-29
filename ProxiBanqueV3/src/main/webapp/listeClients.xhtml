@@ -8,11 +8,10 @@
 
 	<ui:define name="content">
 		<h:form>
-
-			<h:selectOneRadio value="#{client}">
+			<h:selectOneRadio value="#{client}" layout="pageDirection">
 				<f:selectItems value="#{conseillerController.listClients}" />
 			</h:selectOneRadio>
-			<h:commandButton value="Selectionner" action="consultationClient" />
+			<h:commandButton value="Selectionner" action="consultationClient" onclick="alert('oops, not gonna work')" />
 		</h:form>
 	</ui:define>
 </ui:composition>
