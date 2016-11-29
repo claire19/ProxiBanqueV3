@@ -6,44 +6,44 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <ui:composition template="resources/templates/template.xhtml">
 
-
+	<h:head></h:head>
 
 
 	<ui:define name="title"> Effectuer un virement </ui:define>
 
 
 	<ui:define name="content">
-		<h:form>
-			<label>Identifiant du client à débiter</label>
-			<h:inputText id = "client" value="#{compteController.c}" ></h:inputText>
-		</h:form>
 
-		<h:form>
-			<label>Compte débité :</label>
 
-			<h:selectOneMenu value="#{compteController.numeroCompteDeb}" id = "cDeb">
-				<f:selectItems value="#{compteController.comptesById)}" "/>
-			</h:selectOneMenu>
-		</h:form>
+		<h:panelGrid columns="2">
+			<h:form>
 
-		<h:form>
-			<label>Compte crédité :</label>
+				<h:outputLabel>Identifiant du client à débiter</h:outputLabel>
+				<h:inputText value="#{compteController.id}" id="client">
+					<f:ajax render="cDeb" execute="@this" event="keyup" />
+				</h:inputText>
 
-			<h:selectOneMenu value="#{compteController.numeroCompteCred}">
-				<f:selectItems value="#{compteController.allComptes}" />
-			</h:selectOneMenu>
-		</h:form>
 
-		<h:form>
-			<label>Montant du virement : </label>
-			<h:inputText value="#{compteController.montant}"></h:inputText>
+				<h:outputLabel>Compte débité :</h:outputLabel>
+				<h:selectOneMenu value="#{compteController.numeroCompteDeb}">
+					<f:selectItems value="#{compteController.comptesById}" id="cDeb" />
 
-		</h:form>
+				</h:selectOneMenu>
 
-		<h:form>
-			<h:commandButton value="Valider"
-				action="#{compteController.virementDone}" />
-		</h:form>
+				<h:outputLabel>Compte crédité :</h:outputLabel>
+				<h:selectOneMenu value="#{compteController.numeroCompteCred}">
+					<f:selectItems value="#{compteController.allComptes}" id="cCred" />
+				</h:selectOneMenu>
+
+				<h:outputLabel>Montant du virement : </h:outputLabel>
+				<h:inputText value="#{compteController.montant}" id="montant"></h:inputText>
+
+
+				<h:commandButton value="Valider"
+					action="#{compteController.virementDone(compteController.numeroCompteDeb, compteController.numeroCompteCred, compteController.montant)}" />
+			</h:form>
+		</h:panelGrid>
+
 
 	</ui:define>
 

@@ -2,10 +2,8 @@ package com.proxibanque3.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
@@ -20,6 +18,12 @@ import com.proxibanque3.service.Service;
 @SessionScoped
 public class CompteController implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private long id;
 	private long numeroCompteDeb;
 	private long numeroCompteCred;
 	private double montant;
@@ -29,9 +33,22 @@ public class CompteController implements Serializable {
 	@Inject
 	Service service;
 
-	
-	
-	
+	public List<SelectItem> getComptesById() {
+
+		Client c = new Client();
+		c.setId(this.id);
+		Iterator<Compte> comptes = service.listerComptesByClient(c.getId()).iterator();
+
+		List<SelectItem> comptescli = new ArrayList<SelectItem>();
+		while (comptes.hasNext()) {
+			Compte co = comptes.next();
+			SelectItem s = new SelectItem(co.getNumeroCompte(), co.toString());
+			comptescli.add(s);
+		}
+		return comptescli;
+
+	}
+
 	public List<SelectItem> getAllComptes() {
 		Iterator<Compte> comptes = service.listerComptes().values().iterator();
 
@@ -44,26 +61,9 @@ public class CompteController implements Serializable {
 		return allComptes;
 	}
 
-	public List<SelectItem> getComptesById() {
-
-		Iterator<Compte> comptes = service.listerComptesByClient(c.getId()).iterator();
-
-		List<SelectItem> comptescli = new ArrayList<SelectItem>();
-		while (comptes.hasNext()) {
-			Compte co = comptes.next();
-			SelectItem s = new SelectItem(co.getNumeroCompte(), co.toString());
-			comptescli.add(s);
-		}
-		return comptescli;
-
-	}
-	
-	public void getVirementDone(){
+	public void getVirementDone() {
 		service.effectuerVirement(numeroCompteDeb, numeroCompteCred, montant);
 	}
-	
-	
-	
 
 	public long getNumeroCompteDeb() {
 		return numeroCompteDeb;
@@ -97,6 +97,12 @@ public class CompteController implements Serializable {
 		this.montant = montant;
 	}
 
-	
-	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 }
