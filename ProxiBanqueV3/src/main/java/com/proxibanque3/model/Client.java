@@ -5,10 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.faces.model.ManagedBean;
-
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -123,7 +121,7 @@ public class Client implements Serializable {
 
 	@Override
 	public String toString() {
-		return "nom=" + nom + ", prenom=" + prenom;
+		return nom + ", " + prenom;
 	}
 
 }

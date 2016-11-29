@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14804084894360" configfile="/ProxiBanqueV3/src/main/webapp/WEB-INF/faces-config.xml"/>
-=======
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14804084199750" configfile="/ProxiBanqueV3/src/main/webapp/WEB-INF/faces-config.xml"/>
->>>>>>> 60b5a054f774e00df5804d832404e480e0c770f2
+<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14804340894321" configfile="/ProxiBanqueV3/src/main/webapp/WEB-INF/faces-config.xml"/>
