@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+	<title>Espace conseiller - Connectez-vous</title>
+
+</h:head>
+
+<h:body>
+
+	<div id="header"></div>
+
+	<div id="content">
+		<h:form>
+			<h:panelGrid columns="3">
+
+				<h:outputLabel>Identifiant:</h:outputLabel>
+				<h:inputText value="#{conseiller.login}" required="true"
+					requiredMessage="Merci de remplir ce champs" id="login" />
+				<h:message for="login" />
+
+				<h:outputLabel>Mot de Passe:</h:outputLabel>
+				<h:inputText value="#{conseiller.password}" required="true"
+					requiredMessage="Merci de remplir ce champs" id="password" />
+				<h:message for="password" />
+
+
+				<h:outputLabel />
+				<h:commandButton value="Se Connecter"
+					action="#{conseillerController.verifierLoginConseiller(conseiller)}" />
+
+			</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>

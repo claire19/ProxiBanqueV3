@@ -1,6 +1,7 @@
 package com.proxibanque3.service;
 
 import java.util.Collection;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -157,14 +158,9 @@ public class Service {
 		modifierClientServ(client);
 	}
 
-	public void enregistrerConseiller(Conseiller conseiller) {
-		daoconseiller.createConseillerDao(conseiller);
-		for (Client client : conseiller.getListeClient()) {
-			daoclient.createClientDao(client);
-			for (Compte compte : client.getListeCompte()) {
-				daocompte.createCompteDao(compte);
-			}
-		}
-	}
+	public Iterable<Conseiller> obtenirListeConseillers() {
+		Map<Long, Conseiller> conseillers = daoconseiller.readAllConseillerDao();
 
+		return conseillers.values();
+	}
 }
