@@ -51,6 +51,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 			for (Iterator<?> i = retList.iterator(); i.hasNext();) {
 				Conseiller c = (Conseiller) i.next();
 				allConseillers.put(c.getId(), c);
+
 			}
 
 			tnx.commit();

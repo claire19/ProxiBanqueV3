@@ -1,35 +1,51 @@
 package com.proxibanque3.controller;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import com.proxibanque3.model.Client;
 import com.proxibanque3.model.Conseiller;
 import com.proxibanque3.service.Service;
 
-@ManagedBean
+@Named
 @SessionScoped
-public class ConseillerController {
+public class ConseillerController implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String login, password;
+	private Map<Long, Client> clients = new HashMap<>();
 
-	// @Inject
-	private Service service;
+	@Inject
+	private Service service = new Service();
 
 	public String verifierLoginConseiller(Conseiller conseillerAValider) {
-		Iterable<Conseiller> conseillers = service.obtenirListeConseillers();
-		// faire une boucle sur la liste de conseiller pour verifier si login
-		// conseiller = login liste
-		Iterator<Conseiller> i = conseillers.iterator();
-		String connexion = null;
-		do{
-		Conseiller c = (Conseiller) i.next();
-			if()
-			
-		
-		}while (conseillers.iterator().hasNext() || connexion == null );
-		return "accueil";
+		Map<Long, Conseiller> conseillers = service.obtenirListeConseillers();
+		if (conseillers.isEmpty()) {
+			return "login";
+		} else {
+			Iterator<Conseiller> i = conseillers.values().iterator();
+			do {
+				Conseiller c = (Conseiller) i.next();
+				if (conseillerAValider.getLogin().equals(c.getLogin())
+						&& conseillerAValider.getPassword().equals(c.getPassword())) {
+					i = null;
+					return "listeClients";
+				}
+
+			} while (i.hasNext());
+			return "login";
+		}
 	}
+
+	// get et set
 
 	public String getLogin() {
 		return login;
@@ -45,6 +61,14 @@ public class ConseillerController {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Map<Long, Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Map<Long, Client> clients) {
+		this.clients = clients;
 	}
 
 }
