@@ -4,13 +4,16 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.ManagedBean;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-@Entity
 @ManagedBean
+@SessionScoped
+@Entity
 public class Conseiller extends Person {
 
 	private String login;
@@ -46,13 +49,13 @@ public class Conseiller extends Person {
 		this.password = password;
 	}
 
-	// obtenir la liste des clients associ�s au conseiller
+	// obtenir la liste des clients associes au conseiller
 
 	public Collection<Client> getListeClient() {
 		return clients.values();
 	}
 
-	// on ajoute un client � la liste du conseiller
+	// on ajoute un client a la liste du conseiller
 	public void ajouterClientListeClient(Client client) {
 		clients.put(client.getId(), client);
 		client.setConseiller(this);

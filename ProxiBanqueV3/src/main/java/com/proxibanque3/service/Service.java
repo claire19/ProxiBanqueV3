@@ -29,7 +29,9 @@ public class Service {
 
 	@Inject
 	DaoConseiller daoconseiller;
+	@Inject
 	DaoClient daoclient;
+	@Inject
 	DaoCompte daocompte;
 
 	@PostConstruct
@@ -158,9 +160,8 @@ public class Service {
 		modifierClientServ(client);
 	}
 
-	public Iterable<Conseiller> obtenirListeConseillers() {
-		Map<Long, Conseiller> conseillers = daoconseiller.readAllConseillerDao();
-
-		return conseillers.values();
+	public Map<Long, Conseiller> obtenirListeConseillers() {
+		System.out.println("je passe par obtenirListe");
+		return daoconseiller.readAllConseillerDao();
 	}
 }
