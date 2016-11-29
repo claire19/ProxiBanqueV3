@@ -79,12 +79,12 @@ public class Service {
 
 	// Methodes qui appellent la DAO
 
-	private Client lireClientServ(int idClient) {
+	private Client lireClientServ(long idClient) {
 		Client client = daoclient.readClientDaoById(idClient);
 		return client;
 	}
 
-	private Conseiller lireConseillerServ(int idConseiller) {
+	private Conseiller lireConseillerServ(long idConseiller) {
 		Conseiller conseiller = daoconseiller.readConseillerDaoById(idConseiller);
 		return conseiller;
 	}
@@ -100,14 +100,14 @@ public class Service {
 
 	// Methodes Service
 
-	public Collection<Compte> listerComptesByClient(int idClient) {
+	public Collection<Compte> listerComptesByClient(long idClient) {
 		Client client = lireClientServ(idClient);
 		Collection<Compte> listeComptes = client.getListeCompte();
 		return listeComptes;
 	}
 
-	public Collection<Compte> listerComptes() {
-		Collection<Compte> listeComptes = daocompte.readAllCompteDao().values();
+	public Map<Long, Compte> listerComptes() {
+		Map<Long, Compte> listeComptes = daocompte.readAllCompteDao();
 		return listeComptes;
 	}
 
@@ -121,7 +121,7 @@ public class Service {
 		return compte;
 	}
 
-	public Collection<Client> listerClientsByConseiller(int idConseiller) {
+	public Collection<Client> listerClientsByConseiller(long idConseiller) {
 		Conseiller conseiller = lireConseillerServ(idConseiller);
 		Collection<Client> clients = conseiller.getClients();
 		return clients;

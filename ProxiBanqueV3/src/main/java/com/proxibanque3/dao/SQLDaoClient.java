@@ -81,7 +81,7 @@ public class SQLDaoClient implements DaoClient {
 	}
 
 	@Override
-	public Client readClientDaoById(int idClient) {
+	public Client readClientDaoById(long idClient) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 		Client c = new Client();

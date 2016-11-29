@@ -10,7 +10,7 @@ public interface DaoClient {
 
 	Map<Long, Client> readAllClientDao();
 
-	Client readClientDaoById(int idClient);
+	Client readClientDaoById(long idClient);
 
 	void updateClientDao(Client client);
 

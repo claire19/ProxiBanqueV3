@@ -1,5 +1,6 @@
 package com.proxibanque3.model;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.ManyToOne;
 @Entity 
 @Inheritance 
 @DiscriminatorColumn(name="TypeCompte")
+@ManagedBean
 public abstract class Compte {
 	
 	@Id 
