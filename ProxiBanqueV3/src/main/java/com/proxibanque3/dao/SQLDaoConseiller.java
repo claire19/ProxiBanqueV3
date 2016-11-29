@@ -12,7 +12,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.proxibanque3.model.Conseiller;
-import com.proxibanque3.model.Person;
 
 public class SQLDaoConseiller implements DaoConseiller {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
@@ -36,7 +35,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-	}
+		}
 
 	@Override
 	public Map<Long, Conseiller> readAllConseillerDao() {
@@ -46,7 +45,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 
 		try {
 			tnx.begin();
-			Query q = em.createQuery("from Person where TypePersonne = Conseiller", Person.class);
+			Query q = em.createQuery("from Conseiller", Conseiller.class);
 			List<?> retList = q.getResultList();
 			for (Iterator<?> i = retList.iterator(); i.hasNext();) {
 				Conseiller c = (Conseiller) i.next();
@@ -72,14 +71,10 @@ public class SQLDaoConseiller implements DaoConseiller {
 	public Conseiller readConseillerDaoById(long idConseiller) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
-		Conseiller conseiller = null;
+		Conseiller conseiller = new Conseiller();
 		try {
 			txn.begin();
-			// faire une concatenation plus propre
-			String requete = "from Person where TypePersonne = Conseiller and id = " + idConseiller;
-			System.out.println(requete);
-			Query q = em.createQuery(requete, Person.class);
-			conseiller = (Conseiller) em.find(Person.class, idConseiller);
+			conseiller = em.find(Conseiller.class, idConseiller);
 			txn.commit();
 
 		} catch (Exception e) {
@@ -92,12 +87,12 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-		if (conseiller != null) {
+//		if (conseiller != null) {
 			return conseiller;
-		} else {
-			System.out.println("pas de conseiller correspondant à cet ID");
-			return null;
-		}
+//		} else {
+//			System.out.println("pas de conseiller correspondant à cet ID");
+//			return null;
+//		}
 	}
 
 	@Override
@@ -131,7 +126,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 			try {
 				tnx.begin();
 
-				em.remove(em.find(Person.class, conseiller.getId()));
+				em.remove(em.find(Conseiller.class, conseiller.getId()));
 
 				tnx.commit();
 			} catch (Exception e) {

@@ -85,7 +85,6 @@ public class SQLDaoCompte implements DaoCompte {
 				em.close();
 			}
 		}
-
 		return compte;
 	}
 
@@ -120,7 +119,7 @@ public class SQLDaoCompte implements DaoCompte {
 			try {
 				tnx.begin();
 
-				em.remove(em.find(Compte.class,compte.getNumeroCompte()));
+				em.remove(em.find(Compte.class, compte.getNumeroCompte()));
 
 				tnx.commit();
 			} catch (Exception e) {

@@ -64,23 +64,23 @@ public class MainTest {
 
 		cli3.ajouterCompteListeCompte(cc3);
 
-		cons1.ajouterClientListeClient(cli1);
-//		cons1.ajouterClientListeClient(cli2);
-
-		cons2.ajouterClientListeClient(cli3);
-
-		daoconseiller.createConseillerDao(cons1);
-		daoconseiller.createConseillerDao(cons2);
 
 //		daocompte.createCompteDao(ce1);
 //		daocompte.createCompteDao(cc3);
 //		daocompte.createCompteDao(cc2);
 //		daocompte.createCompteDao(cc1);
 //
-//		daoclient.createClientDao(cli3);
-//		daoclient.createClientDao(cli2);
-//		daoclient.createClientDao(cli1);
+		daoclient.createClientDao(cli3);
+		daoclient.createClientDao(cli2);
+		daoclient.createClientDao(cli1);
 
+		cons1.ajouterClientListeClient(cli1);
+		cons1.ajouterClientListeClient(cli2);
+		
+		cons2.ajouterClientListeClient(cli3);
+		
+		daoconseiller.createConseillerDao(cons1);
+		daoconseiller.createConseillerDao(cons2);
 	}
 
 }

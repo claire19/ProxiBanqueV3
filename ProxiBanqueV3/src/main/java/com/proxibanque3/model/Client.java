@@ -1,31 +1,49 @@
 package com.proxibanque3.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.model.ManagedBean;
+
+import javax.faces.bean.SessionScoped;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 @ManagedBean
-public class Client extends Person {
+@SessionScoped
+public class Client implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String nom;
+	private String prenom;
 	private String adresse;
 	private String email;
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "clients")
 	private Conseiller conseiller;
 
-	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST })
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.ALL })
 	private Map<Long, Compte> comptes = new HashMap<>();
 
 	public Client(String nom, String prenom, String adresse, String email) {
-		super(nom, prenom);
+		this.nom = nom;
+		this.prenom = prenom;
 		this.adresse = adresse;
 		this.email = email;
 	}
@@ -52,6 +70,30 @@ public class Client extends Person {
 		this.email = email;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	// obtenir la liste des comptes associés au client
 
 	public Collection<Compte> getListeCompte() {
@@ -66,7 +108,9 @@ public class Client extends Person {
 	// on supprime un compte de la liste du client
 
 	public void supprimerCompteListeCompte(Compte compte) {
+		compte.setClient(null);
 		comptes.remove(compte.getNumeroCompte());
+
 	}
 
 	public Conseiller getConseiller() {
@@ -76,4 +120,10 @@ public class Client extends Person {
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
+
+	@Override
+	public String toString() {
+		return "nom=" + nom + ", prenom=" + prenom;
+	}
+
 }

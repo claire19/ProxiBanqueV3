@@ -13,7 +13,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.proxibanque3.model.Client;
-import com.proxibanque3.model.Person;
 
 public class SQLDaoClient implements DaoClient {
 
@@ -26,7 +25,6 @@ public class SQLDaoClient implements DaoClient {
 
 		try {
 			tnx.begin();
-
 			em.persist(client);
 
 			tnx.commit();
@@ -40,7 +38,6 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-
 	}
 
 	@Override
@@ -54,7 +51,10 @@ public class SQLDaoClient implements DaoClient {
 		try {
 			tnx.begin();
 
-			Query query = em.createQuery("from Person where TypePerson = Client", Person.class);
+			// Query query = em.createQuery("from Person where TypePerson =
+			// Client", Person.class);
+			Query query = em.createQuery("from Client", Client.class);
+
 			retList = query.getResultList();
 
 			for (Iterator<?> i = retList.iterator(); i.hasNext();) {
@@ -100,7 +100,13 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-		return c;
+		if (c != null) {
+			return c;
+		} else {
+			System.out.println("pas de conseiller correspondant à cet ID");
+			return null;
+		}
+
 	}
 
 	@Override
@@ -112,7 +118,7 @@ public class SQLDaoClient implements DaoClient {
 		try {
 			tnx.begin();
 
-			Client c = em.find(Client.class, client.getId());
+			// Client c = em.find(Client.class, client.getId());
 
 			em.merge(client);
 
@@ -127,7 +133,6 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-
 	}
 
 	@Override
@@ -135,24 +140,26 @@ public class SQLDaoClient implements DaoClient {
 
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
+		if (client != null) {
+			try {
+				tnx.begin();
 
-		try {
-			tnx.begin();
+				em.remove(em.find(Client.class, client.getId()));
 
-			em.remove(client);
-
-			tnx.begin();
-		} catch (Exception e) {
-			if (tnx != null) {
-				tnx.rollback();
+				tnx.begin();
+			} catch (Exception e) {
+				if (tnx != null) {
+					tnx.rollback();
+				}
+				e.printStackTrace();
+			} finally {
+				if (em != null) {
+					em.close();
+				}
 			}
-			e.printStackTrace();
-		} finally {
-			if (em != null) {
-				em.close();
-			}
+		} else {
+			System.out.println("ce conseiller n'existe pas dans la DB il ne peut donc etre supprimé");
 		}
-
 	}
 
 }
