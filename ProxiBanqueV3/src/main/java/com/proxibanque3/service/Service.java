@@ -21,6 +21,9 @@ import com.proxibanque3.model.Conseiller;
  * 		Cette classe comprend tout les services utilises en presentation par
  *         le conseiller depuis le simple affichage de liste juqu'� la
  *         modification des entites stockees en base de donnees
+ * 
+ *         On y utilise l'injection CDI, et c'est ici que l'on crée nos premiers
+ *         éléments de la base de données.
  *
  *
  *
@@ -161,8 +164,9 @@ public class Service {
 	public Map<Long, Conseiller> obtenirListeConseillers() {
 		return daoconseiller.readAllConseillerDao();
 	}
+
 	public Map<Long, Client> obtenirListeClients() {
 		return daoclient.readAllClientDao();
 	}
-	
+
 }

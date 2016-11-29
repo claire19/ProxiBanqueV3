@@ -1,6 +1,7 @@
 package com.proxibanque3.dao;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +14,13 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.proxibanque3.model.Client;
-
+ 
+/**
+ * @author Mathilde & Claire
+ * 
+ *@see La Dao conseiller permet de persister, de modifier et de récupérer des
+ *      conseillers depuis la base de données.
+ */
 public class SQLDaoClient implements DaoClient {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");

@@ -19,7 +19,8 @@ import com.proxibanque3.service.Service;
 public class CompteController implements Serializable {
 
 	/**
-	 * 
+	 * Le CompteController permet d'afficher la liste des comptes disponibles
+	 * pour le virement.
 	 */
 	private static final long serialVersionUID = 1L;
 	private long numeroCompteDeb;
@@ -31,9 +32,6 @@ public class CompteController implements Serializable {
 	@Inject
 	Service service;
 
-	
-	
-	
 	public List<SelectItem> getAllComptes() {
 		Iterator<Compte> comptes = service.listerComptes().values().iterator();
 
@@ -59,13 +57,10 @@ public class CompteController implements Serializable {
 		return comptescli;
 
 	}
-	
-	public void getVirementDone(){
+
+	public void getVirementDone() {
 		service.effectuerVirement(numeroCompteDeb, numeroCompteCred, montant);
 	}
-	
-	
-	
 
 	public long getNumeroCompteDeb() {
 		return numeroCompteDeb;
@@ -99,6 +94,4 @@ public class CompteController implements Serializable {
 		this.montant = montant;
 	}
 
-	
-	
 }

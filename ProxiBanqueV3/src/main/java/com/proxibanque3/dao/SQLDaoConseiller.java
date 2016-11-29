@@ -13,6 +13,13 @@ import javax.persistence.Query;
 
 import com.proxibanque3.model.Conseiller;
 
+/**
+ * @author Mathilde & Claire
+ * 
+ * @see La Dao client permet de persister, de modifier et de récupérer des
+ *      conseillers depuis la base de données.
+ *
+ */
 public class SQLDaoConseiller implements DaoConseiller {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 
@@ -35,7 +42,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-		}
+	}
 
 	@Override
 	public Map<Long, Conseiller> readAllConseillerDao() {
@@ -87,12 +94,12 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-//		if (conseiller != null) {
-			return conseiller;
-//		} else {
-//			System.out.println("pas de conseiller correspondant à cet ID");
-//			return null;
-//		}
+		// if (conseiller != null) {
+		return conseiller;
+		// } else {
+		// System.out.println("pas de conseiller correspondant à cet ID");
+		// return null;
+		// }
 	}
 
 	@Override

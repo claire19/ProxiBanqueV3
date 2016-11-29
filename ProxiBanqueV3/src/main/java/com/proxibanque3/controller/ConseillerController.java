@@ -19,6 +19,8 @@ import com.proxibanque3.service.Service;
 @SessionScoped
 public class ConseillerController implements Serializable {
 	/**
+	 * Le ConseillerController est un backing bean utilisé pour le login et les
+	 * affichages par la suite.
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -49,19 +51,18 @@ public class ConseillerController implements Serializable {
 			return "login";
 		}
 	}
+
 	public List<SelectItem> getListClients() {
 
 		Iterator<Client> clients = service.obtenirListeClients().values().iterator();
-
-		List<SelectItem> listeClients = new ArrayList<SelectItem>();
+		List<SelectItem> listClients = new ArrayList<SelectItem>();
 		while (clients.hasNext()) {
 			Client cli = clients.next();
 			SelectItem s = new SelectItem(cli.getId(), cli.toString());
-			listeClients.add(s);
+			listClients.add(s);
 		}
-		return listeClients;
+		return listClients;
 	}
-	
 
 	// get et set
 
@@ -80,9 +81,11 @@ public class ConseillerController implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}

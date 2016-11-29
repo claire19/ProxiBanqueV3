@@ -12,6 +12,12 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.proxibanque3.model.Compte;
+/**
+ * @author Mathilde & Claire
+ * 
+ *@see La Dao compte permet de persister, de modifier et de récupérer des
+ *      conseillers depuis la base de données.
+ */
 
 public class SQLDaoCompte implements DaoCompte {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");

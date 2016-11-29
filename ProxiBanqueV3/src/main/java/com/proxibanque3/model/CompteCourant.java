@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("CompteCourant")
 @ManagedBean
+
 public class CompteCourant extends Compte {
 
 	public CompteCourant(double solde) {
