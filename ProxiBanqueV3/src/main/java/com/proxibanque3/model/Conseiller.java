@@ -1,16 +1,15 @@
 package com.proxibanque3.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 import javax.persistence.CascadeType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +18,17 @@ import javax.persistence.OneToMany;
 @ManagedBean
 @SessionScoped
 @Entity
-public class Conseiller{
+public class Conseiller implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Conseiller [nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password=" + password + "]";
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -29,9 +37,8 @@ public class Conseiller{
 	private String login;
 	private String password;
 
-	@OneToMany(mappedBy = "conseiller", cascade={CascadeType.ALL})
+	@OneToMany(mappedBy = "conseiller", cascade = { CascadeType.ALL })
 	private Map<Long, Client> clients = new HashMap<>();
-
 
 	// Constructeur
 	public Conseiller(String nom, String prenom, String login, String password) {
@@ -65,23 +72,23 @@ public class Conseiller{
 	public String getNom() {
 		return nom;
 	}
-	
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
+
 	public String getPrenom() {
 		return prenom;
 	}
-	
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
-	
+
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -105,5 +112,4 @@ public class Conseiller{
 		clients.remove(client).getId();
 	}
 
-		
 }

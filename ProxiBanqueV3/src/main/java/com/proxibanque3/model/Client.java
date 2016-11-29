@@ -1,8 +1,12 @@
 package com.proxibanque3.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.annotation.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,8 +18,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Client {
+@ManagedBean
+@SessionScoped
+public class Client implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -108,6 +118,11 @@ public class Client {
 
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
+	}
+
+	@Override
+	public String toString() {
+		return "nom=" + nom + ", prenom=" + prenom ;
 	}
 
 }

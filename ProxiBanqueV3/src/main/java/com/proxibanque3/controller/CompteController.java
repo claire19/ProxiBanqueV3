@@ -2,10 +2,8 @@ package com.proxibanque3.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
@@ -20,6 +18,10 @@ import com.proxibanque3.service.Service;
 @SessionScoped
 public class CompteController implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long numeroCompteDeb;
 	private long numeroCompteCred;
 	private double montant;

@@ -35,8 +35,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-		System.exit(0);
-	}
+		}
 
 	@Override
 	public Map<Long, Conseiller> readAllConseillerDao() {
@@ -65,7 +64,6 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-		System.exit(0);
 		return allConseillers;
 	}
 
@@ -76,10 +74,6 @@ public class SQLDaoConseiller implements DaoConseiller {
 		Conseiller conseiller = new Conseiller();
 		try {
 			txn.begin();
-			// faire une concatenation plus propre
-//			String requete = "from Person where TypePersonne = Conseiller and id = " + idConseiller;
-//			System.out.println(requete);
-//			Query q = em.createQuery(requete, Person.class);
 			conseiller = em.find(Conseiller.class, idConseiller);
 			txn.commit();
 
@@ -93,13 +87,12 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-		System.exit(0);
-		if (conseiller != null) {
+//		if (conseiller != null) {
 			return conseiller;
-		} else {
-			System.out.println("pas de conseiller correspondant à cet ID");
-			return null;
-		}
+//		} else {
+//			System.out.println("pas de conseiller correspondant à cet ID");
+//			return null;
+//		}
 	}
 
 	@Override
@@ -123,7 +116,6 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
-		System.exit(0);
 	}
 
 	@Override
@@ -147,7 +139,6 @@ public class SQLDaoConseiller implements DaoConseiller {
 					em.close();
 				}
 			}
-			System.exit(0);
 		} else {
 			System.out.println("ce conseiller n'existe pas dans la DB il ne peut donc etre supprimé");
 		}

@@ -38,7 +38,6 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-		System.exit(0);
 	}
 
 	@Override
@@ -76,7 +75,6 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-		System.exit(0);
 		return allClients;
 	}
 
@@ -102,7 +100,6 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-		System.exit(0);
 		if (c != null) {
 			return c;
 		} else {
@@ -136,7 +133,6 @@ public class SQLDaoClient implements DaoClient {
 				em.close();
 			}
 		}
-		System.exit(0);
 	}
 
 	@Override
@@ -161,7 +157,6 @@ public class SQLDaoClient implements DaoClient {
 					em.close();
 				}
 			}
-			System.exit(0);
 		} else {
 			System.out.println("ce conseiller n'existe pas dans la DB il ne peut donc etre supprimé");
 		}

@@ -9,34 +9,10 @@
 	<ui:define name="content">
 		<h:form>
 
-			<h:selectOneRadio value="#{conseiller.clients}" >
-				<f:selectItems/>
-				<h:dataTable  var="client">
-
-					<h:column>
-						<f:facet name="header">ID</f:facet>
-					#{client.id}
-				</h:column>
-
-					<h:column>
-						<f:facet name="header">Nom</f:facet>
-					#{client.nom}
-				</h:column>
-
-					<h:column>
-						<f:facet name="header">Prenom</f:facet>
-					#{client.prenom}
-				</h:column>
-
-					<h:column>
-						<f:facet name="header">Selectionner</f:facet>
-
-						<h:commandButton value="Selectionner" action="consultationClient" />
-
-					</h:column>
-
-				</h:dataTable>
+			<h:selectOneRadio value="#{client}">
+				<f:selectItems value="#{conseillerController.clientsByIdConseiller}" />
 			</h:selectOneRadio>
+			<h:commandButton value="Selectionner" action="consultationClient" />
 		</h:form>
 	</ui:define>
 </ui:composition>
