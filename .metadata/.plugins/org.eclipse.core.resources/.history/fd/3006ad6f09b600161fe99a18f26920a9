@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Arial;
+	background-color: #efebfe;
+}
+
+img {
+	align: left;
+	height: 25%;
+	width: 25%;
+}
+
+h1 {
+	font-size: larger;
+	background-color: #ede9fe;
+	color: #000040;
+	text-align: left;
+}
+
+.pageFooter {
+	font-style: italic;
+	font-size: small;
+	color: #000040;
+	text-align: center;
+}
+
+.content {
+	size: 75%;
+	align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000040;
+}
+
+.welcome {
+	font-size: medium;
+	font-style: oblique;
+	
+}
+

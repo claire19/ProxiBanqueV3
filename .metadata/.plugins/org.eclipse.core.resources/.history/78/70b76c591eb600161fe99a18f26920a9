@@ -1,0 +1,29 @@
+package com.proxibanque3.controller;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import com.proxibanque3.model.Compte;
+import com.proxibanque3.service.Service;
+
+@Named
+@SessionScoped
+public class CompteController implements Serializable {
+	
+	private long numeroCompte;
+	private Map<Long, Compte> comptes = new HashMap<>();
+
+	@Inject
+	Service service;
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,31 @@
+1480323857798	Delete element
+1480323861533	Delete element
+1480327551618	Rename resource 'Ecran1Login.html'
+1480328473769	Delete element
+1480329785510	Delete element
+1480330867769	Rename field 'listeCompte'
+1480330941071	Rename field 'listeClient'
+1480337454668	Infer generic type arguments
+1480337478153	Infer generic type arguments
+1480339042375	Move 'persistence.xml' to 'META-INF'
+1480342348885	Rename type 'MainTest'
+1480343403086	Delete element
+1480345240469	Delete element
+1480405215276	Copy file
+1480405229716	Copy file
+1480405243886	Delete element
+1480405263856	Copy folder
+1480405267951	Delete element
+1480405312522	Move 'templates' to 'resources'
+1480405316248	Move 2 resources to 'templates'
+1480405400564	Move 'templates' to 'webapp'
+1480405435558	Move 'menu.xhtml' to 'resources'
+1480405437132	Move 'template.xhtml' to 'style'
+1480405441488	Move 'template.xhtml' to 'resources'
+1480405516653	Delete element
+1480405848860	Move 2 resources to 'templates'
+1480405919321	Delete element
+1480405936851	Move 'templates' to 'resources'
+1480406201990	Move 'style.css' to 'templates'
+1480410776292	Rename resource 'Ecran5Virement.jsp'
+1480411002072	Rename resource 'Ecran5Virement.xhtml'

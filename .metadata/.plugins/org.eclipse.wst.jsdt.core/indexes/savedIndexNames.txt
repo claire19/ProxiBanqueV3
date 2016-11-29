@@ -1,0 +1,13 @@
+INDEX VERSION 1.3+C:\Users\Adminl\workspace\ProjetClaireMathilde\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4098341823.index
+1409987749.index
+1657330681.index
+2286825357.index
+3963570401.index
+1532468577.index
+3790737106.index
+2991450661.index
+1722033205.index
+3024367349.index
+839089157.index
+976583733.index

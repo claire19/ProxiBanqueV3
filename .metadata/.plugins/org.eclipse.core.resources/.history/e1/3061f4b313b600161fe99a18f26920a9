@@ -1,0 +1,71 @@
+package com.proxibanque3.model;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+<<<<<<< HEAD
+import javax.annotation.ManagedBean;
+=======
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+>>>>>>> 60b5a054f774e00df5804d832404e480e0c770f2
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@ManagedBean
+@SessionScoped
+@Entity
+public class Conseiller extends Person {
+
+	private String login;
+	private String password;
+
+	@OneToMany(mappedBy = "conseiller", cascade={CascadeType.PERSIST})
+	private Map<Long, Client> clients = new HashMap<>();
+
+	// Constructeur
+	public Conseiller(String nom, String prenom, String login, String password) {
+		super(nom, prenom);
+		this.login = login;
+		this.password = password;
+	}
+
+	public Conseiller() {
+	}
+
+	// get set
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	// obtenir la liste des clients associes au conseiller
+
+	public Collection<Client> getListeClient() {
+		return clients.values();
+	}
+
+	// on ajoute un client a la liste du conseiller
+	public void ajouterClientListeClient(Client client) {
+		clients.put(client.getId(), client);
+		client.setConseiller(this);
+	}
+	// on supprime un client de la liste du conseiller
+
+	public void supprimerClientListeClient(Client client) {
+		clients.remove(client).getId();
+	}
+}

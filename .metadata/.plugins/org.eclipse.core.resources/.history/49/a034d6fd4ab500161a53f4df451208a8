@@ -1,0 +1,39 @@
+package com.proxibanque3.model;
+
+public abstract class Compte {
+
+	protected String type;
+	protected double solde;
+	protected long numeroCompte;
+	protected static final String COURANT = "courant";
+	protected static final String EPARGNE = "epargne";
+	
+	
+	public Compte(String type, double solde, long numeroCompte) {
+		super();
+		this.type = type;
+		this.solde = solde;
+		this.numeroCompte = numeroCompte;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public double getSolde() {
+		return solde;
+	}
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+	public long getNumeroCompte() {
+		return numeroCompte;
+	}
+	public void setNumeroCompte(long numeroCompte) {
+		this.numeroCompte = numeroCompte;
+	}
+	
+	
+	
+}

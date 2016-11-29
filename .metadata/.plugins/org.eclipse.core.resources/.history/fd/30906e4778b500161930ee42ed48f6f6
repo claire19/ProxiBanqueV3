@@ -1,0 +1,23 @@
+package com.proxibanque3.test;
+
+import com.proxibanque3.dao.DaoClient;
+import com.proxibanque3.dao.SQLDaoClient;
+import com.proxibanque3.model.Client;
+
+public class MainTestClaire {
+	public static void main(String[] args) {
+		
+		SQLDaoClient dao = new SQLDaoClient();
+		
+		Client client = new Client("Nom2", "Prenom2", "Adresse2", "mail2");
+		dao.createClientDao(client);
+		
+		client.setAdresse("Ma nouvelle adresse");
+		dao.updateClientDao(client);
+		
+		dao.deleteClientDao(client);
+		
+		
+		
+	}
+}
