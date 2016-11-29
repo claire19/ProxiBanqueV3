@@ -161,4 +161,8 @@ public class Service {
 	public Map<Long, Conseiller> obtenirListeConseillers() {
 		return daoconseiller.readAllConseillerDao();
 	}
+	public Map<Long, Client> obtenirListeClients() {
+		return daoclient.readAllClientDao();
+	}
+	
 }

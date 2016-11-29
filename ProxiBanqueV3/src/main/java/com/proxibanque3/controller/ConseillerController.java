@@ -41,7 +41,7 @@ public class ConseillerController implements Serializable {
 				System.out.println(c);
 				if ((c.getLogin()).equals(consInput.getLogin()) && (c.getPassword()).equals(consInput.getPassword())) {
 					consInput.setId(c.getId());
-//					System.out.println(conseillerAVerifier.getId());
+					System.out.println(consInput.getId());
 					return "listeClients";
 				}
 
@@ -49,7 +49,18 @@ public class ConseillerController implements Serializable {
 			return "login";
 		}
 	}
+	public List<SelectItem> getListClients() {
 
+		Iterator<Client> clients = service.obtenirListeClients().values().iterator();
+
+		List<SelectItem> listeClients = new ArrayList<SelectItem>();
+		while (clients.hasNext()) {
+			Client cli = clients.next();
+			SelectItem s = new SelectItem(cli.getId(), cli.toString());
+			listeClients.add(s);
+		}
+		return listeClients;
+	}
 	
 
 	// get et set
@@ -68,6 +79,12 @@ public class ConseillerController implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

@@ -10,7 +10,7 @@
 		<h:form>
 
 			<h:selectOneRadio value="#{client}">
-				<f:selectItems value="#{conseillerController.clientsByIdConseiller}" />
+				<f:selectItems value="#{conseillerController.listClients}" />
 			</h:selectOneRadio>
 			<h:commandButton value="Selectionner" action="consultationClient" />
 		</h:form>
