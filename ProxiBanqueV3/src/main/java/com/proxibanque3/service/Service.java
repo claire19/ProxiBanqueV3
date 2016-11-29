@@ -123,8 +123,8 @@ public class Service {
 
 	public Collection<Client> listerClientsByConseiller(int idConseiller) {
 		Conseiller conseiller = lireConseillerServ(idConseiller);
-		Collection<Client> listeClients = conseiller.getListeClient();
-		return listeClients;
+		Collection<Client> clients = conseiller.getClients();
+		return clients;
 	}
 
 	public void effectuerVirement(long numCompteDebite, long numCompteCredite, double montant) {
@@ -161,7 +161,6 @@ public class Service {
 	}
 
 	public Map<Long, Conseiller> obtenirListeConseillers() {
-		System.out.println("je passe par obtenirListe");
 		return daoconseiller.readAllConseillerDao();
 	}
 }

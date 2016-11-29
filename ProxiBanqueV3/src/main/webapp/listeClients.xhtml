@@ -14,7 +14,7 @@
 	<div id="content">
 		<h:form>
 
-			<h:dataTable value="#{conseillerController.clients}" var="client">
+			<h:dataTable value="#{conseiller.clients}" var="client">
 
 				<h:column>
 					<f:facet name="header">ID</f:facet>
@@ -34,11 +34,8 @@
 				<h:column>
 					<f:facet name="header">Selectionner</f:facet>
 
-					<h:commandLink value="Update" />
-					|
-
-					<h:commandLink value="Delete" />
-
+					<h:commandLink value="Selectionner" />
+				
 				</h:column>
 
 			</h:dataTable>

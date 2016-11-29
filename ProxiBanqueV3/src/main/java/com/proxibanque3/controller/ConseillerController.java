@@ -21,7 +21,6 @@ public class ConseillerController implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String login, password;
-	private Map<Long, Client> clients = new HashMap<>();
 
 	@Inject
 	private Service service = new Service();
@@ -61,14 +60,6 @@ public class ConseillerController implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public Map<Long, Client> getClients() {
-		return clients;
-	}
-
-	public void setClients(Map<Long, Client> clients) {
-		this.clients = clients;
 	}
 
 }

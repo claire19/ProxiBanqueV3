@@ -3,6 +3,7 @@ package com.proxibanque3.model;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public abstract class Compte {
 	protected static final String COURANT = "courant";
 
 	protected static final String EPARGNE = "epargne";
-	@ManyToOne(cascade={CascadeType.PERSIST})
+	@ManyToOne(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinColumn(name="comptes")
 	protected Client client;
 
