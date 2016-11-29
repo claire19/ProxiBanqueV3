@@ -34,6 +34,7 @@ public class SQLDaoCompte implements DaoCompte {
 				em.close();
 			}
 		}
+		System.exit(0);
 	}
 
 	@Override
@@ -62,6 +63,7 @@ public class SQLDaoCompte implements DaoCompte {
 				em.close();
 			}
 		}
+		System.exit(0);
 		return allComptes;
 	}
 
@@ -85,7 +87,7 @@ public class SQLDaoCompte implements DaoCompte {
 				em.close();
 			}
 		}
-
+		System.exit(0);
 		return compte;
 	}
 
@@ -110,6 +112,7 @@ public class SQLDaoCompte implements DaoCompte {
 				em.close();
 			}
 		}
+		System.exit(0);
 	}
 
 	@Override
@@ -133,6 +136,7 @@ public class SQLDaoCompte implements DaoCompte {
 					em.close();
 				}
 			}
+			System.exit(0);
 		} else {
 			System.out.println("ce compte n'existe pas dans la DB il ne peut donc etre supprimé");
 		}

@@ -35,6 +35,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
+		System.exit(0);
 	}
 
 	@Override
@@ -64,6 +65,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
+		System.exit(0);
 		return allConseillers;
 	}
 
@@ -91,6 +93,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
+		System.exit(0);
 		if (conseiller != null) {
 			return conseiller;
 		} else {
@@ -120,6 +123,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 				em.close();
 			}
 		}
+		System.exit(0);
 	}
 
 	@Override
@@ -143,6 +147,7 @@ public class SQLDaoConseiller implements DaoConseiller {
 					em.close();
 				}
 			}
+			System.exit(0);
 		} else {
 			System.out.println("ce conseiller n'existe pas dans la DB il ne peut donc etre supprimé");
 		}

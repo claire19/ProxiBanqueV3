@@ -100,7 +100,7 @@ public class Client {
 	public void supprimerCompteListeCompte(Compte compte) {
 		compte.setClient(null);
 		comptes.remove(compte.getNumeroCompte());
-		
+
 	}
 
 	public Conseiller getConseiller() {
@@ -110,6 +110,5 @@ public class Client {
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
-
 
 }

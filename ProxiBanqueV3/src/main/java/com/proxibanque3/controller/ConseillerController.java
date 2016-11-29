@@ -1,7 +1,6 @@
 package com.proxibanque3.controller;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -9,7 +8,6 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.proxibanque3.model.Client;
 import com.proxibanque3.model.Conseiller;
 import com.proxibanque3.service.Service;
 
