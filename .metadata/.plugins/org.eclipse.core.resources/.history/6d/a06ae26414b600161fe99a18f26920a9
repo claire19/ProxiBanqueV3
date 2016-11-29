@@ -1,0 +1,53 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<!-- 	<link href="style.css" rel="stylesheet" type="text/css" /> -->
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+	<h:html>
+	<h:head>
+
+		
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</h:head>
+
+	<h:body styleClass="bodyT">
+		<ui:insert name="head">
+			<h:graphicImage name="logo.png" styleClass="img" />
+			<br />
+			<br />
+			<div class="welcome">Bienvenue dans votre espace,
+				${Conseiller.prenom} ${Conseiller.nom} !</div>
+
+		</ui:insert>
+
+
+
+		<ui:insert name="menuBar">
+			<ui:include src="menu.xhtml" />
+		</ui:insert>
+
+		<h1>
+			<ui:insert name="title" />
+
+		</h1>
+
+
+		<ui:insert name="content"></ui:insert>
+
+
+
+		<ui:insert name="footer">
+			<div class="pageFooter">ProxiBanqueV3 est une application
+				développée par Mathilde Terrioux et Claire Steinmacher</div>
+		</ui:insert>
+	</h:body>
+	</h:html>
+</f:view>
+
+
+
+

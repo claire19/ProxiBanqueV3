@@ -1,0 +1,7 @@
+127.0.0.1 - - [28/Nov/2016:14:53:17 +0100] "GET / HTTP/1.1" 404 1005
+0:0:0:0:0:0:0:1 - - [28/Nov/2016:14:53:18 +0100] "GET /ProxiBanqueV3/WEB-INF/classes/com/proxibanque3/test/MainTest.java HTTP/1.1" 404 1003
+0:0:0:0:0:0:0:1 - - [28/Nov/2016:14:55:30 +0100] "GET /ProxiBanqueV3/WEB-INF/classes/com/proxibanque3/test/MainTest.java HTTP/1.1" 404 1003
+127.0.0.1 - - [28/Nov/2016:14:56:53 +0100] "GET / HTTP/1.1" 404 1005
+0:0:0:0:0:0:0:1 - - [28/Nov/2016:14:56:54 +0100] "GET /ProxiBanqueV3/WEB-INF/classes/com/proxibanque3/test/MainTest.java HTTP/1.1" 404 1003
+127.0.0.1 - - [28/Nov/2016:14:57:15 +0100] "GET / HTTP/1.1" 404 1005
+0:0:0:0:0:0:0:1 - - [28/Nov/2016:14:57:16 +0100] "GET /ProxiBanqueV3/WEB-INF/classes/com/proxibanque3/test/MainTest.java HTTP/1.1" 404 1003

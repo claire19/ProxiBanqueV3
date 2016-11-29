@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Espace Conseiller - Virement</title>
+
+</head>
+<body>
+<jsp:include page="Bandeau.jsp"/>
+	<div class="corps">
+	<p><h4> Bienvenue sur l'interface de virement</h4>
+	<form method="GET" action="VirementServlet">
+	<p><label>Compte debité : </label>
+	<select name="numeroCompteDebite">
+				<c:forEach items="${client.listeCompte }" var="compte">
+					<option name="${compte.numeroCompte}" value="${compte.numeroCompte}">Compte
+						${compte.type} ${compte.solde} &euro;</option>
+				</c:forEach>
+			</select>
+	<p><label>Compte credité (Merci de taper le numero) : </label>
+	<input type = "text" name= "numeroCompteCredite">			
+	<p><label>Montant du virement : </label> <input type = "text" name= "montantVirement">
+	<p><input type="submit" name="virer" value="Valider le virement">		
+	</form>		
+	</div>
+
+
+
+</body>
+</html>

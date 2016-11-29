@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<!-- 	http://www.primefaces.org/showcase/ui/menu/menubar.xhtml# -->
+<!-- 	<link href="resources/style/style.css" rel="stylesheet" type="text/css" /> -->
+	
+
+		<h:outputStylesheet library="css" name="resources/style/style.css" />
+	
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	</h:head>
+	<h:body>
+
+
+		<h:form>
+			<p:menubar>
+				
+				<p:submenu label="Liste de Client" icon="ui-icon-document" autoDisplay="true" styleClass="menu" url="#">
+					
+					
+				</p:submenu>
+				
+				
+				<p:submenu label="Menu Client" icon="ui-icon-document" autoDisplay="true" styleClass="menu">
+					
+					<p:menuitem value="Nouveau Client" icon="ui-icon-contact"
+						url="#" />
+						<p:menuitem value="Modifier un client" icon="ui-icon-pencil"
+						url="#" />
+					<p:separator />
+					<p:menuitem value="Liste Clients" url="#" />
+				</p:submenu>
+
+				<p:submenu label="Effectuer un virement" icon="ui-icon-refresh" autoDisplay="true" url="#"/>
+
+
+				<p:submenu label="Comptes en Banque " icon="ui-icon-newwin"  autoDisplay="true">
+					<p:menuitem value="Créer un compte" icon="ui-icon-document" url="#" />
+					<p:separator />
+					<p:menuitem value="Liste Comptes" url="#" />
+				</p:submenu>
+
+				<f:facet name="options">
+					<p:commandButton type="button" value="Logout"
+						icon="ui-icon-extlink" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+
+
+
+	</h:body>
+	</h:html>

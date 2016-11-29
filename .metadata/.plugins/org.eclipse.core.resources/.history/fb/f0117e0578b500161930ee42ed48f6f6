@@ -1,0 +1,19 @@
+package com.proxibanque3.test;
+
+import com.proxibanque3.dao.DaoClient;
+import com.proxibanque3.dao.SQLDaoClient;
+import com.proxibanque3.model.Client;
+
+public class MainTestClaire {
+	public static void main(String[] args) {
+		
+		SQLDaoClient dao = new SQLDaoClient();
+		
+		Client client = new Client("Nom", "Prenom", "Adresse", "mail");
+		dao.createClientDao(client);
+		
+		
+		
+		
+	}
+}
