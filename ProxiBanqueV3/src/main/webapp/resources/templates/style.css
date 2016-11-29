@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 
-body {
+.bodyT {
 	font-family: Arial;
 	background-color: #efebfe;
 }
@@ -13,9 +13,9 @@ img {
 
 h1 {
 	font-size: larger;
-	background-color: #ede9fe;
 	color: #000040;
 	text-align: left;
+	
 }
 
 .pageFooter {
@@ -23,6 +23,7 @@ h1 {
 	font-size: small;
 	color: #000040;
 	text-align: center;
+	
 }
 
 .content {
@@ -31,11 +32,10 @@ h1 {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #000040;
+	background-color: #efebfe;
 }
 
 .welcome {
 	font-size: medium;
 	font-style: oblique;
-	
 }
-
