@@ -101,8 +101,7 @@ public class CompteController implements Serializable {
 		this.montant = montant;
 	}
 
-<<<<<<< HEAD
-=======
+
 	public long getId() {
 		return id;
 	}
@@ -111,5 +110,5 @@ public class CompteController implements Serializable {
 		this.id = id;
 	}
 
->>>>>>> 160a9195f7d3552fc3c02fae2701aa2816ff0757
+
 }
