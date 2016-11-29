@@ -5,27 +5,27 @@ Proxybanque V3 - Mathilde & Claire - 29 novembre 2016
 ---------------
 Java resources
 --------------
-com.proxibanque3.controller
-	ConseillerController.java
-	CompteController.java
+- com.proxibanque3.controller
+	-	ConseillerController.java
+	-	CompteController.java
 
-com.proxibanque3.dao
-	DaoClient.java
-	DaoCompte.java
-	DaoComseiller.java
-	SQLDaoClient.java
-	SQLDaoCompte.java
-	SQLDaoConseiller.java
+- com.proxibanque3.dao
+	- DaoClient.java
+	- DaoCompte.java
+	- DaoComseiller.java
+	- SQLDaoClient.java
+	- SQLDaoCompte.java
+	- SQLDaoConseiller.java
 
-com.proxibanque3.model
-	Client.java
-	Conseiller.java
-	Compte.java
-	CompteCourant.java
-	CompteEpargne.java
+- com.proxibanque3.model
+	- Client.java
+	- Conseiller.java
+	- Compte.java
+	- CompteCourant.java
+	- CompteEpargne.java
 	
-org.proxybanque.service
-	Sevice.java
+- org.proxybanque.service
+	- Service.java
 
 
 *******************************************************
@@ -34,21 +34,21 @@ Webapp
 ------
 Utilisation du JSF
 
-racine
-	accueil.xhtml
-	consultationClient.xhtml
-	listeCleints.xhtml
-	login.xhtml
-	virements.xhtml
-template
-	template.xhtml
-	menu.xhtml
-	style.css
-WEB-INF
-	faces-config.xml
-	web.xml
-		>>LIB
-		primefaces-5.1.jar
+- racine
+	- accueil.xhtml
+	- consultationClient.xhtml
+	- listeCleints.xhtml
+	- login.xhtml
+	- virements.xhtml
+- template
+	- template.xhtml
+	- menu.xhtml
+	- style.css
+- WEB-INF
+	- faces-config.xml
+	- web.xml
+	-	>>LIB
+	-	primefaces-5.1.jar
 
 *******************************************************
 ---------------
@@ -62,12 +62,11 @@ Xampp -> MySQL
 -------------
 Mise en forme
 -------------
-Utilisation de CSS et primefaces
+- Utilisation de CSS et primefaces
 
-Template pour la structure des pages
+- Template pour la structure des pages
 
-Utilisation de JavaScript pour l'espace client 
-encore en construction.
+- Utilisation de JavaScript pour l'espace client encore en construction.
 
 *******************************************************
 -----------
